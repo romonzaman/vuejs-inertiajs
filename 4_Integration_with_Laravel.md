@@ -7,25 +7,140 @@ Creating a basic project using Laravel and Inertia.js is a straightforward proce
 
 **Step 1: Set up Laravel Project**
 
-- Install Laravel globally: 
-   > composer global require laravel/installer
 - Create a new Laravel project: 
-   > laravel new blog
+   > composer create-project laravel/laravel example-app
 
-   -OSX
-   >~/.composer/vendor/laravel/installer/bin/laravel new blog
 
 **Step 2: Set up Inertia.js and Vue.js**
 
-- Install Inertia.js and Vue.js packages: 
+   >composer require inertiajs/inertia-laravel
+
+**Step 3: Setup Laravel for vue.js**
+
+   1. update middleware
+
+   > php artisan inertia:middleware
+
+   - modify /app/http/kernel.php
+
 ```
-   cd blog
-   npm install @inertiajs/inertia @inertiajs/inertia-vue
-   composer require inertiajs/inertia-laravel
+   'web' => [
+      // ...
+      \App\Http\Middleware\HandleInertiaRequests::class,
+   ],
+```
+**Step 3: Root template**
+
+- update /resources/js/app.js
+
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+});
 ```
 
-**Step 3: Create a Route and Controller**
+**Step 4: Setup vue with vite**
 
+> npm install @inertiajs/vue3
+> npm i @vitejs/plugin-vue
+
+- update /resources/js/app.js
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+});
+```
+
+- update /vite.config.js
+```
+import vue from '@vitejs/plugin-vue'
+
+export default {
+    plugins: [
+        vue(),
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+}
+```
+
+
+**Step 4: Create Vue Application**
+
+- create a Directory
+> mkdir resources/js/Pages/
+
+- create test component
+   `resources/js/Pages/Welcome.vue`
+
+```
+<script setup>
+import {ref, reactive} from 'vue'
+
+</script>
+
+
+<template>
+
+<div>Welcome</div>
+
+</template>
+
+<style scoped>
+
+</style>
+```
+
+***Step 5: Update Home route with new sample vue component ***
+
+- update routes/web.php:
+```
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+
+Route::get('/', function(){
+    return Inertia::render(component:'Welcome');
+});
+
+```
+
+**Step 6: Run the Application**
+
+- Compile the assets: 
+   >npm run dev
+
+- Start the development server: 
+   > php artisan serve.
+
+- Visit http://localhost:8000/  inyour browser to see the blog posts.
+
+<span>
+You've now set up a basic Laravel project with Inertia.js and created a simple web application with at least one page managed by Inertia.js. This example illustrates how Inertia.js seamlessly integrates with Laravel, allowing you to build dynamic, client-side interactive web applications while utilizing the power of Laravel on the backend.
+</span>
+
+
+
+*** Add New Controller ***
 1. Define a route in routes/web.php:
    > Route::get('/posts', 'PostController@index');
 2. Create a controller: 
@@ -55,10 +170,10 @@ Creating a basic project using Laravel and Inertia.js is a straightforward proce
       });
 ```
 
-4. Run migration:
+5. Run migration:
    >php artisan migrate
 
-5. In the PostController, define the index method:
+6. In the PostController, define the index method:
    > use App\Models\Post;
 ```
    public function index() {
@@ -67,9 +182,7 @@ Creating a basic project using Laravel and Inertia.js is a straightforward proce
    }
 ```
 
-**Step 4: Create a Vue Component**
-
-1. Create a new Vue component at `resources/js/Pages/Posts/Index.vue`:
+7. Create a new Vue component at `resources/js/Pages/Posts/Index.vue`:
 ```html
 <template>
   <div>
@@ -89,53 +202,7 @@ export default {
 </script>
 ```
 
-**Step 5: Update Webpack Configuration**
 
-1. Open `webpack.mix.js` and add the following code to the existing configuration:
-```
-const mix = require('laravel-mix');
-const path = require('path');
-mix.webpackConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'resources/js'),
-    },
-  },
-})
-```
-
-**Step 6: Update Layout File**
-
-1. Open `resources/views/app.blade.php` and update the <body> tag as follows:
-```
-<body>
-  @inertia
-  <script src="{{ mix('/js/app.js') }}" defer></script>
-</body>
-```
-
-**Step 7: Update Default Route**
-
-Open `routes/web.php` and update the default route to render Inertia's root component:
-```
-Route::get('/', function () {
-    return inertia('Welcome');
-});
-```
-
-**Step 8: Run the Application**
-
-- Compile the assets: 
-   >npm run dev
-
-- Start the development server: 
-   > php artisan serve.
-
-- Visit http://localhost:8000/posts  inyour browser to see the blog posts.
-
-<span>
-You've now set up a basic Laravel project with Inertia.js and created a simple web application with at least one page managed by Inertia.js. This example illustrates how Inertia.js seamlessly integrates with Laravel, allowing you to build dynamic, client-side interactive web applications while utilizing the power of Laravel on the backend.
-</span>
 <br/>
 <br/>
 <br/>

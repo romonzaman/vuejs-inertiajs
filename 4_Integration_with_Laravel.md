@@ -8,32 +8,35 @@ Creating a basic project using Laravel and Inertia.js is a straightforward proce
 **Step 1: Set up Laravel Project**
 
 - Create a new Laravel project: 
-   > composer create-project laravel/laravel example-app
-
+```bash
+   composer create-project laravel/laravel example-app
+```
 
 **Step 2: Set up Inertia.js and Vue.js**
-
-   >composer require inertiajs/inertia-laravel
+```bash
+   composer require inertiajs/inertia-laravel
+```
 
 **Step 3: Setup Laravel for vue.js**
 
-   1. update middleware
-
-   > php artisan inertia:middleware
-
+   - update middleware
+```bash
+php artisan inertia:middleware
+```
    - modify /app/http/kernel.php
 
-```
+```json
    'web' => [
       // ...
       \App\Http\Middleware\HandleInertiaRequests::class,
    ],
 ```
+
 **Step 3: Root template**
 
 - update /resources/js/app.js
 
-```
+```js
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
@@ -49,11 +52,13 @@ export default defineConfig({
 
 **Step 4: Setup vue with vite**
 
-> npm install @inertiajs/vue3
-> npm i @vitejs/plugin-vue
+```bash
+   npm install @inertiajs/vue3
+   npm i @vitejs/plugin-vue
+```
 
 - update /resources/js/app.js
-```
+```js
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
@@ -68,7 +73,7 @@ export default defineConfig({
 ```
 
 - update /vite.config.js
-```
+```js
 import vue from '@vitejs/plugin-vue'
 
 export default {
@@ -85,13 +90,12 @@ export default {
 
 **Step 4: Create Vue Application**
 
-- create a Directory
-> mkdir resources/js/Pages/
+- create a Directory `resources/js/Pages/`
 
 - create test component
    `resources/js/Pages/Welcome.vue`
 
-```
+```js
 <script setup>
 import {ref, reactive} from 'vue'
 
@@ -112,10 +116,8 @@ import {ref, reactive} from 'vue'
 ***Step 5: Update Home route with new sample vue component ***
 
 - update routes/web.php:
-```
-<?php
+```php
 
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function(){
@@ -127,10 +129,14 @@ Route::get('/', function(){
 **Step 6: Run the Application**
 
 - Compile the assets: 
-   >npm run dev
+```
+   npm run dev
+```
 
 - Start the development server: 
-   > php artisan serve.
+```
+   php artisan serve.
+```
 
 - Visit http://localhost:8000/  inyour browser to see the blog posts.
 

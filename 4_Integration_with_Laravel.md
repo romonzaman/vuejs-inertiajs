@@ -124,7 +124,7 @@ You've now set up a basic Laravel project with Inertia.js and created a simple w
 **Step 1: Set up Laravel Project**
 
 - Install Laravel globally: 
-   > composer global require laravel/installer.
+   > composer global require laravel/installer
 - Create a new Laravel project: 
    > laravel new blog
 
@@ -141,8 +141,36 @@ You've now set up a basic Laravel project with Inertia.js and created a simple w
 1. Define a route in routes/web.php:
    > Route::get('/posts', 'PostController@index');
 2. Create a controller: 
-   >php artisan make:controller PostController.
-3. In the PostController, define the index method:
+   >php artisan make:controller PostController
+
+3. Create a Model:
+   >php artisan make:model Post -m
+
+4. Update Model:
+```php
+      Schema::create('posts', function (Blueprint $table) {
+         $table->id();
+
+         $table->bigInteger('user_id')
+         ->foreign('user_id')
+         ->references('id')
+         ->on('users');
+
+         $table->string('slug', 255)
+         ->unique(); // Index
+
+         $table->string('title', 255);
+
+         $table->text('content');
+
+         $table->timestamps();
+      });
+```
+
+4. Run migration:
+   >php artisan migrate
+
+5. In the PostController, define the index method:
    > use App\Models\Post;
 ```
    public function index() {

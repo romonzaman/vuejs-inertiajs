@@ -25,7 +25,7 @@ php artisan inertia:middleware
 ```
    - modify /app/http/kernel.php
 
-```json
+```
    'web' => [
       // ...
       \App\Http\Middleware\HandleInertiaRequests::class,

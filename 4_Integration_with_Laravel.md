@@ -88,7 +88,7 @@ export default {
 ```
 
 
-**Step 4: Create Vue Application**
+**Step 5: Create Vue Applicatio**
 
 - create a Directory `resources/js/Pages/`
 
@@ -113,7 +113,7 @@ import {ref, reactive} from 'vue'
 </style>
 ```
 
-***Step 5: Update Home route with new sample vue component ***
+**Step 6: Update Home route with new sample vue component**
 
 - update routes/web.php:
 ```php
@@ -126,7 +126,7 @@ Route::get('/', function(){
 
 ```
 
-**Step 6: Run the Application**
+**Step 7: Run the Application**
 
 - Compile the assets: 
 ```
@@ -144,9 +144,16 @@ Route::get('/', function(){
 You've now set up a basic Laravel project with Inertia.js and created a simple web application with at least one page managed by Inertia.js. This example illustrates how Inertia.js seamlessly integrates with Laravel, allowing you to build dynamic, client-side interactive web applications while utilizing the power of Laravel on the backend.
 </span>
 
+<br/>
+<br/>
+<br/>
 
 
-*** Add New Controller ***
+### BONUS:
+-------------
+
+### Add New Controller
+
 1. Define a route in routes/web.php:
    > Route::get('/posts', 'PostController@index');
 2. Create a controller: 
@@ -208,18 +215,10 @@ export default {
 </script>
 ```
 
-
-<br/>
-<br/>
-<br/>
-<br/>
+____
 <a href="./3_InertiaJs_Features.md"><< 3. Inertia.js Features</a>
 <br/>
-<br/>
 <a href="./5_Client_Side_Components.md">>> 5. Client-Side Components</a>
-
-<br/>
-<br/>
 <br/>
 <a href="./readme.md">Main Page</a>
 <br/>

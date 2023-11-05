@@ -119,3 +119,106 @@ You've now set up a basic Laravel project with Inertia.js and created a simple w
 <a href="./readme.md">Main Page</a>
 <br/>
 <br/>
+
+
+**Step 1: Set up Laravel Project**
+
+- Install Laravel globally: 
+   > composer global require laravel/installer.
+- Create a new Laravel project: 
+   > laravel new blog
+
+**Step 2: Set up Inertia.js and Vue.js**
+
+- Install Inertia.js and Vue.js packages: 
+
+   >cd blog
+   >npm install @inertiajs/inertia @inertiajs/inertia-vue
+
+
+**Step 3: Create a Route and Controller**
+
+1. Define a route in routes/web.php:
+   > Route::get('/posts', 'PostController@index');
+2. Create a controller: 
+   >php artisan make:controller PostController.
+3. In the PostController, define the index method:
+   > use App\Models\Post;
+```
+   public function index() {
+      $posts = Post::all();
+      return inertia('Posts/Index', ['posts' => $posts]);
+   }
+```
+
+**Step 4: Create a Vue Component**
+
+1. Create a new Vue component at `resources/js/Pages/Posts/Index.vue`:
+```html
+<template>
+  <div>
+    <h1>Blog Posts</h1>
+    <ul>
+      <li v-for="post in posts" :key="post.id">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+export default {
+  props: ['posts'],
+};
+</script>
+```
+
+**Step 5: Update Webpack Configuration**
+
+1. Open `webpack.mix.js` and add the following code to the existing configuration:
+```
+const mix = require('laravel-mix');
+const path = require('path');
+mix.webpackConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'resources/js'),
+    },
+  },
+})
+```
+
+**Step 6: Update Layout File**
+
+1. Open `resources/views/app.blade.php` and update the <body> tag as follows:
+```
+<body>
+  @inertia
+  <script src="{{ mix('/js/app.js') }}" defer></script>
+</body>
+```
+
+**Step 7: Update Default Route**
+
+Open `routes/web.php` and update the default route to render Inertia's root component:
+```
+Route::get('/', function () {
+    return inertia('Welcome');
+});
+```
+
+**Step 8: Run the Application**
+
+- Compile the assets: 
+   >npm run dev
+
+- Start the development server: 
+   > php artisan serve.
+
+- Visit http://localhost:8000/posts  inyour browser to see the blog posts.
+
+<p>
+That’s it! You’ve created a basic blog website using Laravel, Inertia.js, and Vue.js. You can continue to build upon this foundation by adding features such as creating, editing, and deleting blog posts, authentication, and more.
+</p>
+
+

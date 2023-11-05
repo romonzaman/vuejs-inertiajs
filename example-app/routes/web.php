@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use \App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +17,6 @@ use Inertia\Inertia;
 Route::get('/', function(){
     return Inertia::render(component:'Welcome');
 });
+
+Route::get('/about', [WelcomeController::class, 'About'])->name('About');
+Route::get('/contact', [WelcomeController::class, 'Contact'])->name('Concat');

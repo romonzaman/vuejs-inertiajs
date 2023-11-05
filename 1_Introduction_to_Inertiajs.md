@@ -1,3 +1,5 @@
+<a href="./readme.md"><< Main Page</a>
+
 ### Introduction to Inertia.js
 
 <p>
@@ -23,3 +25,14 @@ Inertia.js is a powerful and versatile JavaScript framework that has gained popu
 <span>
 In summary, Inertia.js is a versatile JavaScript framework that bridges the gap between server-side rendering and client-side interactivity. It simplifies frontend development, improves performance, and allows developers to build modern web applications without the need for heavyweight JavaScript frameworks. If you're looking for a framework that combines the best of both worlds and is well-suited for use with popular backend frameworks, Inertia.js is a valuable tool to consider in your web development projects.
 </span>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="./readme.md"><< Main Page</a>
+<br/>
+<br/>
+<a href="./2_Comparison_of_SSR_and_CSR.md">>> Comparison of SSR and CSR</a>
+<br/>
+<br/>

@@ -63,3 +63,18 @@ Inertia.js is a powerful JavaScript framework designed to simplify building data
 <span>
 Inertia.js's features combine to create a more efficient and user-friendly web application development experience. Its ability to streamline data-driven UI updates, provide client-side routing, enable shared controllers, and simplify form handling makes it a valuable tool for developers aiming to build responsive and interactive web applications.
 </span>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="./2_Comparison_of_SSR_and_CSR.md"><< 2. Comparison of SSR and CSR</a>
+<br/>
+<br/>
+<a href="./4_Integration_with_Laravel.md">>> 4. Integration with Laravel</a>
+
+<br/>
+<br/>
+<br/>
+<a href="./readme.md">Main Page</a>
+<br/>
+<br/>

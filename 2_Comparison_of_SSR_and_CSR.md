@@ -12,3 +12,17 @@ Server-Side Rendering (SSR) and Client-Side Rendering (CSR) are two distinct app
 <span>
 In summary, SSR excels in delivering fast initial page loads and better SEO, while CSR offers dynamic, interactive user experiences. The choice between the two depends on the specific requirements of the project, with some applications even employing a hybrid approach to leverage the strengths of both SSR and CSR.
 </span>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="./1_Introduction_to_Inertiajs.md"><< 1. Introduction to Inertia.js</a>
+<br/>
+<br/>
+<a href="./3_InertiaJs_Features.md">>> 3. Inertia.js Features</a>
+<br/>
+<br/>
+<br/>
+<a href="./readme.md">Main Page</a>
+<br/>
+<br/>

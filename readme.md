@@ -19,8 +19,6 @@ Create modern single-page React, Vue, and Svelte apps using classic server-side 
 
 <a href="./4_Integration_with_Laravel.md">4. Integration with Laravel</a>
 
-<a href="./4a_understanding_of_InertiaJs.md">4. Understanding Of InertiaJs</a>
-
 <a href="./5_Client_Side_Components.md">5. Client-Side Components</a>
 
 

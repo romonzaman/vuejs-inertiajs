@@ -51,3 +51,15 @@ Using a frontend framework like Vue.js alongside Inertia.js is a powerful combin
 <span>
 By combining Inertia.js and Vue.js, you can create a seamless and efficient workflow for developing client-side components within a server-rendered application. Inertia.js simplifies server-client communication, page navigation, and data exchange, while Vue.js enhances your application's interactivity and component-based development, resulting in a well-rounded and responsive user experience.
 </span>
+
+</span>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="./5_Client_Side_Components.md">>> 5. Client-Side Components</a>
+<br/>
+<br/>
+<a href="./readme.md">Main Page</a>
+<br/>
+<br/>

@@ -131,10 +131,11 @@ You've now set up a basic Laravel project with Inertia.js and created a simple w
 **Step 2: Set up Inertia.js and Vue.js**
 
 - Install Inertia.js and Vue.js packages: 
-
-   >cd blog
-   >npm install @inertiajs/inertia @inertiajs/inertia-vue
-
+```
+   cd blog
+   npm install @inertiajs/inertia @inertiajs/inertia-vue
+   composer require inertiajs/inertia-laravel
+```
 
 **Step 3: Create a Route and Controller**
 

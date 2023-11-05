@@ -6,7 +6,7 @@ import {ref, reactive} from 'vue'
 
 <template>
 
-<div>Welcome</div>
+<div class="text-3xl text-red-800">Welcome</div>
 
 </template>
 
